@@ -518,3 +518,14 @@
   </div>
 </section>
 {/if}
+
+
+<svelte:head>
+	<title>/home/externref</title>
+	<meta content="externref" property="og:title" />
+	<meta content="personal portfolio and blog." property="og:description" />
+	<meta content="/" property="og:url" />
+	<meta content="https://externref.duckdns.org/jeff.png" property="og:image" />
+	<meta content="#c2a3d6" data-react-helmet="true" name="theme-color" />
+	<meta name="twitter:card" content="summary_large_image" />
+</svelte:head>
