@@ -378,6 +378,11 @@
   resolved "https://registry.npmjs.org/@sveltejs/acorn-typescript/-/acorn-typescript-1.0.5.tgz"
   integrity sha512-IwQk4yfwLdibDlrXVE04jTZYlLnwsTT2PIOQQGNLWfjavGifnk1JD1LcZjZaBTRcxZu2FfPfNLOE04DSu9lqtQ==
 
+"@sveltejs/adapter-static@^3.0.1":
+  version "3.0.8"
+  resolved "https://registry.yarnpkg.com/@sveltejs/adapter-static/-/adapter-static-3.0.8.tgz#f23ee99a9678dbaec58b79d183bc3defbfe99f1a"
+  integrity sha512-YaDrquRpZwfcXbnlDsSrBQNCChVOT9MGuSg+dMAyfsAa1SmiAhrA5jUYUiIMC59G92kIbY/AaQOWcBdq+lh+zg==
+
 "@sveltejs/adapter-vercel@^5.6.3":
   version "5.7.2"
   resolved "https://registry.npmjs.org/@sveltejs/adapter-vercel/-/adapter-vercel-5.7.2.tgz"
@@ -1348,6 +1353,13 @@ svelte-check@^4.0.0:
     fdir "^6.2.0"
     picocolors "^1.0.0"
     sade "^1.7.4"
+
+svelte-cursorphobic@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/svelte-cursorphobic/-/svelte-cursorphobic-1.0.1.tgz#4afef5c720f0d0c199d0078954f7fdc333026b0d"
+  integrity sha512-RCfIaSDLJ+gW0A5/tLtd6usZfR6VPNcvrpIaNsrVpvDrhBmHybvdATRFhDuco8EfVW9aktdXO5aqLcWn5fyxzg==
+  dependencies:
+    "@sveltejs/adapter-static" "^3.0.1"
 
 svelte@^5.0.0:
   version "5.33.17"

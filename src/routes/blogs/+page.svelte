@@ -45,27 +45,28 @@
 		bind:value={$search}
 		style="box-shadow: none;"
 	/>
-	<div class="mt-4 grid grid-cols-1 gap-6 md:grid-cols-2">
+	<div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 		{#each $filteredBlogs as blog}
 			<div
 				use:draggable={{ axis: 'both' }}
-				class="bg-base-100 hover:bg-base-200 dark:bg-base-200 dark:hover:bg-base-300 text-base-content dark:text-base-content block rounded-lg border p-6 text-xs shadow transition-colors duration-200 sm:text-sm md:text-base"
+				class="bg-base-100 dark:bg-base-200 rounded-xl shadow p-6 flex flex-col hover:scale-[1.03] transition-transform border border-base-200 dark:border-base-300"
+				
 			>
-				<div class="mb-2 flex items-center gap-2">
+				<div class="flex items-center gap-2 mb-2">
 					{#if blog.title.includes('Python')}
-						<i class="bi bi-filetype-py text-xl text-yellow-500 sm:text-2xl" title="Python"></i>
+						<i class="bi bi-filetype-py text-2xl text-yellow-500" title="Python"></i>
 					{/if}
 					{#if blog.title.includes('Shell')}
-						<i class="bi bi-terminal text-xl text-green-500 sm:text-2xl" title="Shell"></i>
+						<i class="bi bi-terminal text-2xl text-green-500" title="Shell"></i>
 					{/if}
 					{#if blog.title.toLowerCase().includes('arch')}
-						<i class="bi bi-box text-xl text-blue-500 sm:text-2xl" title="Arch Linux"></i>
+						<i class="bi bi-box text-2xl text-blue-500" title="Arch Linux"></i>
 					{/if}
-					<h2 class="text-primary text-lg font-bold sm:text-xl md:text-2xl">{blog.title}</h2>
+					<h2 class="text-primary text-lg font-bold sm:text-xl md:text-2xl flex-1">{blog.title}</h2>
 				</div>
-				<p class="mb-4 text-xs opacity-80 sm:text-sm md:text-base">{blog.description}</p>
-				<div class="mt-2 flex items-center justify-between">
-					<span class="text-xs opacity-60 sm:text-sm">{blog.date}</span>
+				<p class="text-base-content/80 text-sm mb-3 flex-1">{blog.description}</p>
+				<div class="flex items-center justify-between mt-2 pt-2 border-t border-base-200">
+					<span class="text-xs text-base-content/60">{blog.date}</span>
 					<a href={blog.url} class="btn btn-primary btn-xs sm:btn-sm ml-4">Read</a>
 				</div>
 			</div>

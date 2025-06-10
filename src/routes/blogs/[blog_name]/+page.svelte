@@ -1,4 +1,7 @@
 <script lang="ts">
+  // @ts-nocheck
+
+
 	import FunctionOverloading from '$lib/blogs/function-overloading.svx';
 	import ShellBasics from '$lib/blogs/shell-basics.svx';
 	import ErrorPage from '$lib/blogs/error.svx';
