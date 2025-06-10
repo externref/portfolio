@@ -1,0 +1,13 @@
+@import url('bootstrap-icons/font/bootstrap-icons.css');
+@import url('prism-themes/themes/prism-nord.css');
+
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+@plugin "daisyui" {
+	themes:
+		nord --default,
+		dim --prefersdark;
+}
