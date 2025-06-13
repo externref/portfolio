@@ -75,3 +75,26 @@ export async function deletePaste(id: string, deleteCode: string): Promise<void>
 		throw new Error('Paste not found or delete code incorrect');
 	}
 }
+
+export async function getPresenceData(): Promise<any> {
+	const { data, error } = await client.from('discord_presence').select('data').limit(1).single();
+
+	if (error) {
+		throw new Error(`Failed to fetch presence data: ${error.message}`);
+	}
+
+	return data;
+}
+
+export async function updatePresenceData(data: any): Promise<void> {
+	const { error } = await client
+		.from('discord_presence')
+		.update({ data })
+		.eq('id', 1)
+		.select()
+		.single();
+
+	if (error) {
+		throw new Error(`Failed to update presence data: ${error.message}`);
+	}
+}
