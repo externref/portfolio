@@ -35,14 +35,14 @@
 			class="flex flex-1 flex-col items-center md:items-start md:justify-center md:pl-16 xl:pl-32"
 		>
 			<h1
-				class="text-primary mb-4 text-3xl font-extrabold transition-all duration-500 hover:scale-105 sm:text-4xl md:text-5xl"
+				class="text-primary mb-4 text-2xl font-extrabold transition-all duration-500 hover:scale-105 sm:text-xl md:text-2xl lg:text-3xl"
 			>
 				Hi, I'm <span class="inline-block transition-transform duration-500 hover:scale-110"
 					>Sarthak</span
 				>
 			</h1>
 			<p
-				class="text-base-content dark:text-base-content/80 mx-auto mb-6 max-w-xl text-base transition-opacity duration-500 hover:opacity-90 sm:text-lg md:mx-0 md:text-xl"
+				class="text-base-content dark:text-base-content/80 mx-auto mb-6 max-w-xl text-base transition-opacity duration-500 hover:opacity-90 sm:text-sm md:mx-0 md:text-base lg:text-lg"
 			>
 				I'm a developer who enjoys building, automating, and scripting with Python, Rust, and web
 				technologies. I care about open source and the command line, and I like to keep things

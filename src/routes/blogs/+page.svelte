@@ -5,6 +5,13 @@
 
 	const blogs: BlogInfo[] = [
 		new BlogInfo(
+			'Javascript Shenanigans',
+			'Exploring the quirks and features of JavaScript that can lead to unexpected behavior, including type coercion and scope issues.',
+			'/blogs/the-best-language',
+			'/absolute_cinema.png',
+			'19-06-2025'
+		),
+		new BlogInfo(
 			'Function Overloading in Python',
 			'Implementing function overloading in Python, a powerful feature that allows you to define multiple functions with the same name but different parameters.',
 			'/blogs/function-overloading-in-python',
@@ -60,6 +67,9 @@
 					{/if}
 					{#if blog.title.toLowerCase().includes('arch')}
 						<i class="bi bi-box text-2xl text-blue-500" title="Arch Linux"></i>
+					{/if}
+					{#if blog.title.toLowerCase().includes('javascript')}
+						<i class="bi bi-filetype-js text-2xl text-yellow-400" title="JavaScript"></i>
 					{/if}
 					<h2 class="text-primary flex-1 text-lg font-bold sm:text-xl md:text-2xl">{blog.title}</h2>
 				</div>

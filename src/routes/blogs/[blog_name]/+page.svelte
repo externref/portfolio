@@ -5,21 +5,23 @@
 	import ShellBasics from '$lib/blogs/shell-basics.svx';
 	import ErrorPage from '$lib/blogs/error.svx';
 	import ArchInstall from '$lib/blogs/arch-install.svx';
+	import TheBestLanguage from '$lib/blogs/the-best-language.svx';
 	import { page } from '$app/state';
 	import { onMount } from 'svelte';
 	import Giscus from '@giscus/svelte';
-
 	import 'prism-themes/themes/prism-nord.css';
+
 	import { browser } from '$app/environment';
 	const blogs = {
 		'function-overloading-in-python': FunctionOverloading,
 		'shell-basics': ShellBasics,
-		'arch-install': ArchInstall
+		'arch-install': ArchInstall,
+		'the-best-language': TheBestLanguage
 	};
 
 	const currentBlog = blogs[page.params.blog_name as keyof typeof blogs] || ErrorPage;
 
-	let theme: string = $state('dim');
+	let theme: string = $state('black');
 
 	onMount(() => {
 		if (browser) {
@@ -38,6 +40,7 @@
 			href="/blogs">blogs</a
 		><b>&nbsp;/&nbsp;</b>{page.params.blog_name}
 	</div>
+	<!-- svelte-ignore svelte_component_deprecated -->
 	<svelte:component this={currentBlog} />
 	<div
 		class="bg-base-200 dark:bg-base-300 border-base-300 dark:border-base-100 mt-12 rounded-xl border p-2 shadow md:p-4"

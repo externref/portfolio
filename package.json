@@ -36,7 +36,10 @@
 		"@supabase/supabase-js": "^2.50.0",
 		"@types/prismjs": "^1.26.5",
 		"bootstrap-icons": "^1.13.1",
+		"chart.js": "^4.5.0",
+		"dayjs": "^1.11.13",
 		"prism-themes": "^1.9.0",
-		"svelte-cursorphobic": "^1.0.1"
+		"svelte-cursorphobic": "^1.0.1",
+		"svelte5-chartjs": "^1.0.0"
 	}
 }

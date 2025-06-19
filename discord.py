@@ -1,3 +1,4 @@
+import datetime
 import hashlib
 import os
 
@@ -60,7 +61,7 @@ async def check_status():
         playing = {
             "name": act2[0].name,
             "details": f"{act2[0].state} | {act2[0].details}"
-            if act2[0].details
+            if act2[0].__dict__.get("details", None)
             else None,
             "url": act2[0].url if act2[0].url else None,
             "large_image_url": act2[0].large_image_url
@@ -133,6 +134,7 @@ async def check_status():
         }
     )
     await send_api_request(data)
+    print(f'activated at {datetime.datetime.now()}')
 
 
 @client.event

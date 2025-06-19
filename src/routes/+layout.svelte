@@ -32,7 +32,8 @@
 	class="bg-base-100 sticky top-0 z-50 flex items-center justify-between px-4 py-3 shadow md:px-6"
 >
 	<div class="flex flex-1 items-center gap-2">
-		<a href="/" aria-label="Home">
+		<a href="/" aria-label="Home" class="flex items-center gap-2">
+			<img src="/icon.png" alt="icon" class="h-10 w-10" />
 			<span class="text-primary text-3xl font-extrabold tracking-tight">externref</span>
 		</a>
 	</div>
@@ -41,6 +42,7 @@
 		<a href="/#projects" class="hover:text-primary transition-colors">Projects</a>
 		<a href="/blogs" class="hover:text-primary transition-colors">Blogs</a>
 		<a href="/paste" class="hover:text-primary transition-colors">Paste</a>
+		<a href="/stats" class="hover:text-primary transition-colors">Stats</a>
 	</div>
 	<div class="flex flex-1 items-center justify-end gap-2">
 		<!-- Theme toggle button -->
@@ -82,6 +84,13 @@
 					onclick={() => {
 						(document.getElementById('nav-toggle') as HTMLInputElement).checked = false;
 					}}>Paste</a
+				>
+				<a
+					href="/stats"
+					class="hover:text-primary w-full text-center transition-colors"
+					onclick={() => {
+						(document.getElementById('nav-toggle') as HTMLInputElement).checked = false;
+					}}>Stats</a
 				>
 			</div>
 		</div>

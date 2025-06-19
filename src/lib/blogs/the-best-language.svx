@@ -1,0 +1,271 @@
+# Javascript Shenanigans
+
+Exploring the quirks and features of JavaScript that can lead to unexpected behavior, including type coercion and scope issues.
+
+<script>
+  let showIndex = false;
+</script>
+
+<div class="mb-8">
+  <button class="btn btn-xs btn-outline mb-2" on:click={() => showIndex = !showIndex}>
+    {showIndex ? 'Hide Index' : 'Show Index'}
+  </button>
+  {#if showIndex}
+    <nav>
+      <div class="bg-base-200 rounded-lg shadow p-3 text-base-content/80 min-w-[160px]">
+        <div class="text-primary font-bold mb-2 text-base tracking-tight">Index</div>
+        <ul class="flex flex-col gap-0.5 text-sm">
+          <li><a href="#var-let" class="text-primary transition-colors no-underline">Variable declarations using <code>var</code> and <code>let</code></a></li>
+          <li><a href="#const" class="text-primary transition-colors no-underline"><code>const</code> isn't actually constant value</a></li>
+          <li><a href="#banana" class="text-primary transition-colors no-underline">ba<code>NaN</code>a</a></li>
+          <li><a href="#parse-quirks" class="text-primary transition-colors no-underline"><code>parseInt</code> and <code>parseFloat</code> quirks</a></li>
+          <li><a href="#sort-strings" class="text-primary transition-colors no-underline">Sorting numbers as strings</a></li>
+          <li><a href="#min-value" class="text-primary transition-colors no-underline"><code>Number.MIN_VALUE</code> is greater than <code>0</code></a></li>
+          <li><a href="#nan-type" class="text-primary transition-colors no-underline"><code>NaN</code> is a number</a></li>
+          <li><a href="#float-precision" class="text-primary transition-colors no-underline">Floating Point Precision</a></li>
+          <li><a href="#epic-parse" class="text-primary transition-colors no-underline">Epic parse functions</a></li>
+          <li><a href="#infinity" class="text-primary transition-colors no-underline">The special number <code>Infinity</code></a></li>
+          <li><a href="#this-keyword" class="text-primary transition-colors no-underline"><code>this</code> keyword</a></li>
+          <li><a href="#scope-hoisting" class="text-primary transition-colors no-underline">Scope and Hoisting</a></li>
+          <li><a href="#truthy-falsy" class="text-primary transition-colors no-underline">Truthy and Falsy Values</a></li>
+          <li><a href="#type-coercion" class="text-primary transition-colors no-underline">Type Coercion</a></li>
+          <li><a href="#null-undefined" class="text-primary transition-colors no-underline">Type of <code>null</code> and <code>undefined</code></a></li>
+        </ul>
+      </div>
+    </nav>
+  {/if}
+</div>
+
+-----
+
+<div id="var-let">
+
+## Variable delcarations using `var` and `let` 
+
+```javascript
+var x = 1;
+if (true) {
+  var x = 2; // Same variable
+  console.log(x); // 2
+}
+let y = 1;
+if (true) {
+  let y = 2; // Different variable
+  console.log(y); // 2
+}
+console.log(x); // 2
+console.log(y); // 1
+```
+In JavaScript, `var` is function-scoped or globally scoped, meaning it can be re-declared and updated within the same scope. In contrast, `let` is block-scoped, meaning it is confined to the block in which it is defined. This can lead to confusion when using `var` inside blocks like `if` statements.
+
+</div>
+
+<div id="const">
+
+## `const` isn't actually constant value
+
+```javascript
+const obj = { name: 'John' };
+obj.name = 'Jane'; // This is allowed
+```
+
+This is because `const` only prevents reassignment of the variable itself, not the properties of the object it references.
+
+</div>
+
+<div id="banana">
+
+## ba`NaN`a
+
+```javascript
+"b" + "a" + +"a" + "a"; // "baNaNa"
+``` 
+
+This is a classic JavaScript quirk where the unary `+` operator attempts to convert the string `'a'` to a number, resulting in `NaN`. The expression evaluates to `'b' + 'a' + NaN + 'a'`, which concatenates to `'baNaNa'`.
+
+</div>
+
+<div id="parse-quirks">
+
+## `parseInt` and `parseFloat` quirks
+
+```javascript
+parseInt(0.0000005) // 5
+``` 
+
+`parseInt` and `parseFloat` can behave unexpectedly with very small numbers. In this case, `parseInt(0.0000005)` returns `5` because it ignores the leading zeros and interprets the number as `5`.
+
+</div>
+
+<div id="sort-strings">
+
+## Sorting numbers as strings
+
+```javascript
+const numbers = [10, 1, 21, 2];
+numbers.sort(); // [1, 10, 2, 21]
+```
+
+When sorting an array of numbers, JavaScript's `Array.prototype.sort()` method sorts them as strings by default. This can lead to unexpected results, as it compares the string representations of the numbers rather than their numeric values. To sort numerically, you should provide a comparison function:
+
+</div>
+
+<div id="min-value">
+
+## `Number.MIN_VALUE` is greater than `0`
+
+```javascript
+> Number.MIN_VALUE
+5e-324
+> Number.MIN_VALUE > 0
+true
+```
+
+`Number.MIN_VALUE` represents the smallest positive number that can be represented in JavaScript, which is approximately `5e-324`. It is greater than `0`, but it is not the smallest possible value; rather, it is the smallest positive non-zero value.
+
+</div>
+
+<div id="nan-type">
+
+## `NaN` is a number 
+
+```javascript
+console.log(typeof NaN); // 'number'
+console.log(NaN === NaN); // false
+console.log(isNaN(NaN)); // true
+```
+
+`NaN` stands for "Not a Number" and is a special value in JavaScript that represents an undefined or unrepresentable value in numerical calculations. It is of type `number`, but it is not equal to itself, which is why `NaN === NaN` returns `false`. The function `isNaN()` can be used to check if a value is `NaN`.
+
+</div>
+
+<div id="float-precision">
+
+## Floating Point Precision
+
+```javascript
+0.1 + 0.2; // 0.30000000000000004
+0.1 + 0.2 === 0.3; // false
+```
+
+Floating point arithmetic in JavaScript can lead to precision issues due to the way numbers are represented in binary. The result of `0.1 + 0.2` is not exactly `0.3`, but rather `0.30000000000000004`, which can cause unexpected behavior in comparisons.
+
+</div>
+
+<div id="epic-parse">
+
+## Epic parse functions 
+
+```javascript
+[1, 2, 3].map(parseInt); // [1, NaN, NaN]
+```
+
+The `parseInt` function can behave unexpectedly when used with `Array.prototype.map()`. The second argument of `parseInt` is the radix (base) for the conversion, and when `map` calls `parseInt`, it passes the index of the element as the second argument. This results in only the first element being parsed correctly, while the others return `NaN`.
+
+</div>
+
+<div id="infinity">
+
+## The special number `Infinity`
+
+```javascript
+console.log(1 / 0); // Infinity
+console.log(Infinity + 1); // Infinity
+console.log(Infinity - Infinity); // NaN
+console.log(Infinity * 2); // Infinity
+console.log(Infinity / 2); // Infinity
+console.log(Infinity * 0); // NaN
+console.log(Infinity === Infinity); // true
+console.log(Infinity === 1 / 0); // true
+console.log(Infinity > 1000); // true
+console.log(Infinity < -1000); // false
+console.log(Infinity.toString()); // 'Infinity'
+console.log(typeof Infinity); // 'number'
+```
+Infinity is a special numeric value in JavaScript that represents an unbounded value. It can result from dividing a positive number by zero or from certain mathematical operations that exceed the maximum representable number in JavaScript. Infinity behaves like a number in most operations, but it has some unique properties, such as being greater than any finite number and being equal to itself.
+
+</div>
+
+<div id="this-keyword">
+
+## `this` keyword
+```javascript
+function test() {
+  console.log(this);
+}
+test(); // In non-strict mode, this refers to the global object (window in browsers)
+test.call({ name: 'Alice' }); // { name: 'Alice' } (this refers to the object passed to call)
+```
+
+The `this` keyword in JavaScript can be confusing because its value depends on how a function is called. In non-strict mode, if a function is called without an explicit context (like `test()`), `this` refers to the global object (e.g., `window` in browsers). However, when using methods like `call`, `apply`, or `bind`, you can explicitly set the value of `this`.
+
+</div>
+
+<div id="scope-hoisting">
+
+## Scope and Hoisting
+```javascript
+function example() {
+  console.log(x); // undefined (due to hoisting)
+  var x = 5;
+  console.log(x); // 5
+}
+example();
+```
+In JavaScript, variable declarations using `var` are hoisted to the top of their containing function or global scope. This means that the variable is accessible before its declaration, but it will be `undefined` until the line where it is assigned a value. In contrast, variables declared with `let` and `const` are not hoisted in the same way and will throw a `ReferenceError` if accessed before their declaration.
+
+</div>
+
+<div id="truthy-falsy">
+
+## Truthy and Falsy Values
+```javascript
+console.log(Boolean(0));          // false
+console.log(Boolean(''));         // false
+console.log(Boolean(null));       // false
+console.log(Boolean(undefined));  // false
+console.log(Boolean(NaN));       // false
+console.log(Boolean('Hello'));    // true
+console.log(Boolean(42));         // true
+console.log(Boolean([]));         // true (empty array is truthy)
+console.log(Boolean({}));         // true (empty object is truthy)
+```
+
+JavaScript has a set of truthy and falsy values that can lead to unexpected behavior in conditional statements. Falsy values include `0`, `''` (empty string), `null`, `undefined`, and `NaN`. All other values, including non-empty strings, non-zero numbers, objects, and arrays, are considered truthy.
+In comparison, Python has a more straightforward approach to truthy and falsy values, where `None`, `0`, `''`, and empty collections (like `[]` and `{}`) are considered falsy, while all other values are truthy.
+
+</div>
+
+<div id="type-coercion">
+
+## Type Coercion
+
+JavaScript performs type coercion in many situations, which can lead to unexpected results. For example:
+
+```javascript
+console.log('2' + 3);    // '23'   (string + number => string)
+console.log('2' - 3);    // -1     (string - number => number)
+console.log(2 + true);   // 3      (number + boolean => number)
+console.log(2 + null);   // 2      (number + null => number)
+console.log(2 + undefined); // NaN (number + undefined => NaN)
+console.log('2' * '3');  // 6      (string * string => number)
+console.log('2' * []);   // 2      (string * array => number)
+console.log([] + {});    // '[object Object]' (array + object => string)
+```
+
+</div>
+
+<div id="null-undefined">
+
+## Type of `null` and `undefined`
+
+```javascript
+console.log(typeof null);      // 'object' (this is a historical bug in JavaScript)
+console.log(typeof undefined); // 'undefined' (this is correct)
+console.log(null == undefined); // true (they are loosely equal)
+console.log(null === undefined); // false (they are strictly not equal)
+```
+
+In JavaScript, `null` is an object type, which is a historical quirk. It can lead to confusion when checking types.
+
+</div>
