@@ -2,6 +2,16 @@
 	import type { ActivityData } from '$lib/$types';
 
 	export let data: ActivityData;
+
+	const statusColor ={
+		online: 'border-green-500',
+		idle: 'border-yellow-500',
+		dnd: 'border-red-500',
+		offline: 'border-gray-400',
+	    streaming: 'border-purple-500',
+		do_not_disturb: 'border-red-500'
+
+	}
 </script>
 
 <section class="mx-auto my-8 w-full max-w-full px-2 md:w-[40vw] md:max-w-2xl">
@@ -11,12 +21,7 @@
 			<img
 				src={data.avatar_url}
 				alt={data.username}
-				class="h-8 w-8 rounded-full border-2 transition-colors duration-300 {data.activity
-					.listening ||
-				data.activity.playing ||
-				data.activity.custom
-					? 'border-green-500'
-					: 'border-gray-400'}"
+				class="h-8 w-8 rounded-full border-2 transition-colors duration-300 {statusColor[data.status as keyof typeof statusColor] || 'border-gray-400'}"
 			/>
 			<div class="flex-1 text-left">
 				<div class="text-primary text-sm leading-tight font-bold">

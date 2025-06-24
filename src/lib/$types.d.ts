@@ -1,6 +1,7 @@
 export type ActivityData = {
 	username: string;
 	avatar_url: string;
+	status: 'online'| 'offline'|'idle'| 'dnd'|'do_not_disturb'| 'invisible'| 'streaming',
 	activity: {
 		custom?: {
 			value: string;

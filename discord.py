@@ -39,6 +39,7 @@ async def check_status():
     data = {
         "username": sarth.display_name,
         "avatar_url": sarth.display_avatar.url,
+        "status": sarth.status.name,
         "activity": {},
     }
     if sarth.activities is None:
