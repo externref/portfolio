@@ -27,6 +27,7 @@ async def send_api_request(data: dict):
             raise Exception(
                 f"Failed to send data to API: {res.status} - {await res.text()}"
             )
+        session.close()
 
 
 @tasks.loop(seconds=15)
@@ -62,19 +63,19 @@ async def check_status():
         playing = {
             "name": act2[0].name,
             "details": f"{act2[0].state} | {act2[0].details}"
-            if act2[0].__dict__.get("details", None)
+            if hasattr(act2[0], "details") and act2[0].details
             else None,
-            "url": act2[0].url if act2[0].url else None,
+            "url": act2[0].url if hasattr(act2[0], "url") and act2[0].url else None,
             "large_image_url": act2[0].large_image_url
-            if act2[0].large_image_url
+            if hasattr(act2[0], "large_image_url") and act2[0].large_image_url
             else "/jeffdefault.png",
             "small_image_url": act2[0].small_image_url
-            if act2[0].small_image_url
+            if hasattr(act2[0], "small_image_url") and act2[0].small_image_url
             else "/jeffdefault.png",
-            "state": act2[0].state if act2[0].state else None,
+            "state": act2[0].state if hasattr(act2[0], "state") and act2[0].state else None,
             "timestamps": {
-                "start": act2[0].start.isoformat() if act2[0].start else None,
-                "end": act2[0].end.isoformat() if act2[0].end else None,
+                "start": act2[0].start.isoformat() if hasattr(act2[0], "start") and act2[0].start else None,
+                "end": act2[0].end.isoformat() if hasattr(act2[0], "end") and act2[0].end else None,
             },
         }
     if any(
