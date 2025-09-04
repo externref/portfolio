@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>externref.dev Blogs</title>
+    <link>https://externref.dev/blogs</link>
+    <description>Latest blogs from externref.dev</description>
+    <language>en-us</language>
+    <item>
+  <title>Arch Linux Installation Guide</title>
+  <link>https://externref.dev/blogs/arch-install</link>
+  <description>A comprehensive guide to installing Arch Linux, including partitioning, package management, and system configuration.</description>
+  <pubDate>2025-06-10</pubDate>
+    </item>
+    <item>
+  <title>Function Overloading in Python</title>
+  <link>https://externref.dev/blogs/function-overloading-in-python</link>
+  <description>Implementing function overloading in Python, a powerful feature that allows you to define multiple functions with the same name but different parameters.</description>
+  <pubDate>2025-06-10</pubDate>
+    </item>
+    <item>
+  <title>Shell Basics</title>
+  <link>https://externref.dev/blogs/shell-basics</link>
+  <description>A beginner's guide to shell scripting, covering essential commands and concepts to help you automate tasks in a Unix-like environment.</description>
+  <pubDate>2025-06-10</pubDate>
+    </item>
+    <item>
+  <title>Javascript Shenanigans</title>
+  <link>https://externref.dev/blogs/the-best-language</link>
+  <description>Exploring the quirks and features of JavaScript that can lead to unexpected behavior, including type coercion and scope issues.</description>
+  <pubDate>2025-06-19</pubDate>
+    </item>
+  </channel>
+</rss>
