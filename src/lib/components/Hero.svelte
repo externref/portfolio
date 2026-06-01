@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 
 	import StackMarquee from '$lib/components/StackMarquee.svelte';
-	
+
 	let visible = $state(false);
 	let textVisible = $state(false);
 	let subtitleVisible = $state(false);
@@ -13,6 +13,7 @@
 		setTimeout(() => (subtitleVisible = true), 1300);
 	});
 </script>
+
 <svelte:head>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/devicon@2.16.0/devicon.min.css" />
 </svelte:head>
@@ -35,12 +36,16 @@
 		</div>
 		<br /> <br />
 		<StackMarquee />
-		<br /> 
-		<div class="w-fit bg-black/30 backdrop-blur-xl py-1.5 rounded-lg">
+		<br />
+		<div class="w-fit rounded-lg bg-black/30 py-1.5 backdrop-blur-xl">
 			<div class="flex items-center gap-2">
 				<span class="text-sm text-white/70">made with</span>
-				<svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-					<path class="text-red-500" fill="currentColor" d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+				<svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+					<path
+						class="text-red-500"
+						fill="currentColor"
+						d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+					/>
 				</svg>
 				<span class="text-sm text-white/70">and</span>
 				<i class="devicon-svelte-plain colored text-base"></i>
