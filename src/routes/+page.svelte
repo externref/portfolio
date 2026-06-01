@@ -3,7 +3,7 @@
 </script>
 
 <svelte:head>
-	<title>externref</title>
+	<title>/home/externref</title>
 </svelte:head>
 
 <Hero />

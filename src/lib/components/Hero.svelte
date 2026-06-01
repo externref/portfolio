@@ -1,6 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
 
+	import StackMarquee from '$lib/components/StackMarquee.svelte';
 	let visible = $state(false);
 	let textVisible = $state(false);
 	let subtitleVisible = $state(false);
@@ -22,12 +23,15 @@
 		<p class="hero-label">// portfolio</p>
 		<h1 class="hero-title">externref</h1>
 		<p class="hero-sub" class:hero-sub--in={subtitleVisible}>
-			Hi, I'm Sarthak - a python, typescript and web developer.<br />Interested in backend, databases and application development.
+			Hi, I'm Sarthak - a python, typescript and web developer.<br />Interested in backend,
+			databases and application development.
 		</p>
 		<div class="hero-cta-row" class:hero-cta-row--in={subtitleVisible}>
 			<a href="/projects" class="hero-btn-primary">View Work</a>
 			<a href="/contact" class="hero-btn-ghost">Get in touch →</a>
 		</div>
+		<br /> <br />
+		<StackMarquee />
 	</div>
 
 	<div class="hero-char-wrap" class:hero-char-wrap--in={visible}>
