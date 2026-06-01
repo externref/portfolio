@@ -10,25 +10,25 @@
 	const icons: TechIcon[] = [
 		{ name: 'Python', class: 'devicon-python-plain', colored: true },
 		{ name: 'Rust', class: 'devicon-rust-original' },
+		{ name: 'Java', class: 'devicon-java-plain', colored: true },
+		{ name: 'Svelte', class: 'devicon-svelte-plain', colored: true },
 		{ name: 'TypeScript', class: 'devicon-typescript-plain', colored: true },
+		{ name: 'PostgreSQL', class: 'devicon-postgresql-plain', colored: true },
+		{ name: 'Supabase', class: 'devicon-supabase-plain', colored: true },
 		{ name: 'JavaScript', class: 'devicon-javascript-plain', colored: true },
 		{ name: 'C', class: 'devicon-c-plain', colored: true },
-		{ name: 'Java', class: 'devicon-java-plain', colored: true },
 		{ name: 'HTML', class: 'devicon-html5-plain', colored: true },
 		{ name: 'CSS', class: 'devicon-css3-plain', colored: true },
 		{ name: 'SQL', class: 'devicon-azuresqldatabase-plain' },
-		{ name: 'Svelte', class: 'devicon-svelte-plain', colored: true },
 		{ name: 'FastAPI', class: 'devicon-fastapi-plain', colored: true },
 		{ name: 'Flask', class: 'devicon-flask-original' },
 		{ name: 'Express', class: 'devicon-express-original' },
 		{ name: 'React', class: 'devicon-react-original', colored: true },
 		{ name: 'Next.js', class: 'devicon-nextjs-plain' },
 		{ name: 'Django', class: 'devicon-django-plain' },
-		{ name: 'PostgreSQL', class: 'devicon-postgresql-plain', colored: true },
 		{ name: 'MySQL', class: 'devicon-mysql-plain', colored: true },
 		{ name: 'MongoDB', class: 'devicon-mongodb-plain', colored: true },
 		{ name: 'Redis', class: 'devicon-redis-plain', colored: true },
-		{ name: 'Supabase', class: 'devicon-supabase-plain', colored: true },
 		{ name: 'Git', class: 'devicon-git-plain', colored: true },
 		{ name: 'GitHub', class: 'devicon-github-original' },
 		{ name: 'VSCode', class: 'devicon-vscode-plain', colored: true },
@@ -54,8 +54,6 @@
 	let pageIndex: number = $state(0);
 	let animating: boolean = $state(false);
 
-	// Each icon in the current page gets its own stagger state
-	// phase: 'idle' | 'exit' | 'enter'
 	let phase: 'idle' | 'exit' | 'enter' = $state('idle');
 	let displayPage: TechIcon[] = $state(getPage(0));
 
@@ -63,24 +61,21 @@
 		if (animating || next === pageIndex) return;
 		animating = true;
 
-		// Phase 1: staggered exit (icons drop + fade out)
 		phase = 'exit';
 
 		setTimeout(
 			() => {
-				// Swap content instantly while invisible
 				displayPage = getPage(next);
 				pageIndex = next;
 				phase = 'enter';
 
-				// Phase 2: staggered enter (icons rise + fade in)
 				setTimeout(
 					() => {
 						phase = 'idle';
 						animating = false;
 					},
 					400 + PAGE_SIZE * 40
-				); // wait for last icon to finish
+				);
 			},
 			300 + PAGE_SIZE * 35
 		);
@@ -104,7 +99,6 @@
 		timer = setInterval(() => slide('left'), 3200);
 	}
 
-	// per-icon style based on phase + stagger index
 	function iconStyle(i: number): string {
 		const delay = i * 35;
 		const base = `transition: opacity 280ms ease ${delay}ms, transform 280ms cubic-bezier(0.34,1.56,0.64,1) ${delay}ms;`;
@@ -114,7 +108,6 @@
 		if (phase === 'enter') {
 			return base + 'opacity: 1; transform: translateY(0) scale(1);';
 		}
-		// idle
 		return 'opacity: 1; transform: translateY(0) scale(1); transition: none;';
 	}
 </script>
@@ -127,15 +120,15 @@
 	<div class="grid w-full grid-cols-7 gap-3 py-2">
 		{#each displayPage as tech, i (tech.name)}
 			<div class="relative aspect-square w-full overflow-hidden rounded-xl" style={iconStyle(i)}>
-				<div class="absolute inset-0 bg-black/50 saturate-[180%] backdrop-blur-xl"></div>
+				<div class="absolute inset-0 bg-black/50 saturate-180 backdrop-blur-xl"></div>
 				<div
-					class="absolute inset-0 bg-gradient-to-br from-[#c8a96e]/[0.06] via-white/[0.015] to-black/10"
+					class="absolute inset-0 bg-linear-to-br from-[#c8a96e]/6 via-white/1.5 to-black/10"
 				></div>
 				<div
 					class="absolute inset-0 rounded-xl border border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.07)]"
 				></div>
 				<div
-					class="absolute top-0 right-[10%] left-[10%] h-px rounded-full bg-gradient-to-r from-transparent via-white/20 to-transparent"
+					class="absolute top-0 right-[10%] left-[10%] h-px rounded-full bg-linear-to-r from-transparent via-white/20 to-transparent"
 				></div>
 				<div class="relative z-10 flex h-full w-full items-center justify-center">
 					<i
@@ -149,7 +142,6 @@
 		{/each}
 	</div>
 
-	<!-- Dots -->
 	<div class="mt-3 flex gap-1.5">
 		{#each Array(totalPages) as _, i}
 			<button

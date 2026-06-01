@@ -156,6 +156,10 @@
 	.hero-accent-bar--in {
 		@apply w-1/2;
 	}
+
+	.footer-left {
+		@apply max-w-max;
+	}
 }
 
 @keyframes hero-grain-shift {

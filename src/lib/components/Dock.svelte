@@ -34,6 +34,13 @@
 			external: true
 		},
 		{
+			id: "discord",
+			icon: "bi-discord",
+			label: "Discord",
+			href: "https://discord.com/users/1134016724132446208",
+			external: true
+		},
+		{
 			id: 'linkedin',
 			icon: 'bi-linkedin',
 			label: 'LinkedIn',
