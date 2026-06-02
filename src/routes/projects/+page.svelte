@@ -6,25 +6,24 @@
 	});
 </script>
 
+<svelte:head>
+	<title>/home/externref/projects</title>
+</svelte:head>
+
 <div class="projects-bg-wrap md:hidden" class:projects-bg-wrap--in={visible}>
-	<img
-		src="/jolyne_eyes.png"
-		alt="Character background"
-		class="projects-bg-img"
-		aria-hidden="true"
-	/>
+	<img src="/jolyne_eyes.png" alt="" class="projects-bg-img bg-black" aria-hidden="true" />
 	<div class="projects-bg-fade"></div>
 </div>
 
 <div
-	class="fixed inset-x-0 top-16 bottom-0 z-0 hidden transition-opacity duration-700 ease-out md:block"
+	class="fixed inset-x-0 top-16 bottom-0 z-0 hidden bg-black transition-opacity duration-700 ease-out md:block"
 	class:opacity-0={!visible}
 	class:opacity-100={visible}
 >
 	<img
 		src="/jolyne_eyes.png"
-		alt="Character background"
-		class="h-full w-full object-cover object-center"
+		alt=""
+		class="h-full w-full bg-black object-cover object-center"
 		aria-hidden="true"
 	/>
 	<div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black"></div>
