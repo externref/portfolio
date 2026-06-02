@@ -12,10 +12,6 @@
 	let { title, description, image, tags = [], githubUrl, deployUrl, docsUrl }: Props = $props();
 </script>
 
-<svelte:head>
-	<link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.min.css" />
-</svelte:head>
-
 <article class="group relative overflow-hidden rounded-2xl">
 	<!-- Acrylic base -->
 	<div class="absolute inset-0 bg-black/50 saturate-[180%] backdrop-blur-xl"></div>

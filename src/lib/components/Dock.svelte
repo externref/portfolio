@@ -62,10 +62,6 @@
 	onMount(() => setTimeout(() => (dockVisible = true), 400));
 </script>
 
-<svelte:head>
-	<link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.min.css" />
-</svelte:head>
-
 <nav
 	class="pointer-events-none fixed inset-x-0 bottom-5 z-50 flex justify-center px-4 transition-all duration-700 ease-out md:px-0"
 	class:opacity-0={!dockVisible}
