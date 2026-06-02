@@ -25,7 +25,6 @@
 			download: true
 		},
 		{ id: 'div1', type: 'divider' },
-		{ id: 'contact', icon: 'bi-send-fill', label: 'Contact', href: '/contact' },
 		{
 			id: 'github',
 			icon: 'bi-github',
@@ -40,6 +39,7 @@
 			href: 'https://discord.com/users/1134016724132446208',
 			external: true
 		},
+		{ id: 'contact', icon: 'bi-send-fill', label: 'Contact', href: '/contact' },
 		{
 			id: 'linkedin',
 			icon: 'bi-linkedin',
@@ -63,10 +63,7 @@
 </script>
 
 <svelte:head>
-	<link
-		rel="stylesheet"
-		href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-	/>
+	<link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.min.css" />
 </svelte:head>
 
 <nav

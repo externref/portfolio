@@ -31,6 +31,7 @@
 		"vite": "^8.0.7"
 	},
 	"dependencies": {
-		"bootstrap-icons": "^1.13.1"
+		"bootstrap-icons": "^1.13.1",
+		"devicon": "^2.17.0"
 	}
 }

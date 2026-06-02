@@ -113,7 +113,7 @@
 </script>
 
 <svelte:head>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/devicon@2.16.0/devicon.min.css" />
+	<link rel="stylesheet" href="node_modules/devicon/devicon.min.css" />
 </svelte:head>
 
 <div class="relative w-full select-none" aria-label="Technology stack">
