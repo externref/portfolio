@@ -112,7 +112,6 @@
 	}
 </script>
 
-
 <div class="relative w-full select-none" aria-label="Technology stack">
 	<div class="grid w-full grid-cols-7 gap-3 py-2">
 		{#each displayPage as tech, i (tech.name)}

@@ -20,6 +20,34 @@
 
 	const projects: Project[] = [
 		{
+			title: 'glyph',
+			description: 'pastebin service for code snippet and text sharing with syntax highlighting',
+			image: '/projects/glyph.png',
+			tags: ['python', 'fastapi', 'mongo-db'],
+			githubUrl: 'https://github.com/externref/glyph',
+			deployUrl: 'https://glyph.externref.dev'
+		},
+		{
+			title: 'aoi',
+			description:
+				"abstraction layer over rust's rusqlite crate for sqlite3 in rust[, python and cli (WIP)]",
+
+			image: '/projects/aoi.png',
+			tags: ['rust', 'python', 'sqlite3', 'cli'],
+			githubUrl: 'https://github.com/externref/aoi',
+			deployUrl: 'https://github.com/externref/aoi/releases',
+			docsUrl: 'https://externref.github.io/aoi'
+		},
+		{
+			title: 'wyvern',
+			description:
+				'a flexible and easy to use Discord API wrapper for python with asyncio and event handling support.',
+			image: '/projects/wyvern.png',
+			tags: ['python', 'discord-api-v10', 'library', 'async', 'aiohttp'],
+			githubUrl: 'https://github.com/externref/wyvern',
+			docsUrl: 'https://wyvern.readthedocs.io/en/latest/'
+		},
+		{
 			title: 'reverb',
 			description:
 				'spotify analysis platform using spotify API with profile analysis and playlist recommendation generation',
@@ -27,22 +55,6 @@
 			tags: ['svelte-kit', 'spotify api', 'tailwindcss'],
 			githubUrl: 'https://github.com/externref/reverb/tree/master',
 			deployUrl: 'https://reverb.externref.dev'
-		},
-		{
-			title: 'glyph',
-			description: 'pastebin service for code snippet and text sharing with syntax highlighting',
-			image: '/projects/glyph.png',
-			tags: ['rust', 'rocket.rs', 'tailwindcss', 'postgresql'],
-			githubUrl: 'https://github.com/externref/glyph',
-			deployUrl: 'https://glyph.externref.dev'
-		},
-		{
-			title: 'wyvern',
-			description: 'A short description of what this project does and the problem it solves.',
-			image: '/projects/wyvern.png',
-			tags: ['python', 'discord-api-v10', 'library', 'async', 'aiohttp'],
-			githubUrl: 'https://github.com/externref/wyvern',
-			docsUrl: 'https://wyvern.readthedocs.io/en/latest/'
 		}
 	];
 </script>
@@ -67,7 +79,7 @@
 		class="h-full w-full bg-black object-cover object-center"
 		aria-hidden="true"
 	/>
-	<div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/50 to-black"></div>
+	<div class="absolute inset-0 bg-linear-to-b from-black/30 via-black/50 to-black"></div>
 </div>
 
 <div class="hero-logo" class:hero-logo--in={visible} aria-hidden="true">
@@ -87,7 +99,7 @@
 	</h1>
 
 	<div class="relative z-10 flex-1">
-		<div class="grid grid-cols-1 gap-5 md:grid-cols-2">
+		<div class="grid grid-cols-1 gap-5 md:grid-cols-2 md:px-20">
 			{#each projects as project, i}
 				<div
 					class="translate-y-4 opacity-0 transition-all duration-700 ease-out"

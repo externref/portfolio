@@ -1,10 +1,3 @@
-<script lang="ts">
-</script>
-
-<svelte:head>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/devicon@2.16.0/devicon.min.css" />
-</svelte:head>
-
 <footer class="relative w-full border-t border-white/10 bg-black/30 backdrop-blur-xl">
 	<div class="mx-auto max-w-7xl px-6 py-8">
 		<div class="flex items-center justify-center gap-2">

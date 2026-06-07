@@ -14,9 +14,6 @@
 	});
 </script>
 
-<svelte:head>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/devicon@2.16.0/devicon.min.css" />
-</svelte:head>
 <section class="hero-shell">
 	<div class="hero-scanlines" aria-hidden="true"></div>
 	<div class="hero-grain" aria-hidden="true"></div>

@@ -74,16 +74,16 @@
 	<div
 		class="pointer-events-auto relative max-w-[calc(100vw-2rem)] overflow-hidden
 		       rounded-full border border-white/10
-		       bg-black/50 shadow-[0_8px_32px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.07)] saturate-[180%]
+		       bg-black/50 shadow-[0_8px_32px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.07)] saturate-180
 		       backdrop-blur-2xl"
 	>
 		<!-- Tint overlay -->
 		<div
-			class="pointer-events-none absolute inset-0 rounded-full bg-gradient-to-br from-[#c8a96e]/[0.07] via-white/[0.02] to-black/10"
+			class="pointer-events-none absolute inset-0 rounded-full bg-linear-to-br from-[#c8a96e]/[0.07] via-white/2 to-black/10"
 		></div>
 		<!-- Top shine -->
 		<div
-			class="pointer-events-none absolute top-0 right-[8%] left-[8%] h-px rounded-full bg-gradient-to-r from-transparent via-[#c8a96e]/40 to-transparent"
+			class="pointer-events-none absolute top-0 right-[8%] left-[8%] h-px rounded-full bg-linear-to-r from-transparent via-[#c8a96e]/40 to-transparent"
 		></div>
 
 		<!-- Scrollable inner -->
@@ -92,7 +92,7 @@
 				{#each items as item}
 					{#if item.type === 'divider'}
 						<li
-							class="mx-1.5 h-5 w-px flex-shrink-0 bg-gradient-to-b from-transparent via-white/15 to-transparent"
+							class="mx-1.5 h-5 w-px shrink-0 bg-linear-to-b from-transparent via-white/15 to-transparent"
 							role="separator"
 							aria-hidden="true"
 						></li>
