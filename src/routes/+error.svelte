@@ -27,11 +27,7 @@
 {#if $page.status === 404}
 	<div
 		class="fixed right-0 bottom-0 z-0 h-dvh transition-all duration-1000 ease-out md:hidden"
-		class:opacity-0={!visible}
-		class:opacity-100={visible}
-		class:translate-x-16={!visible}
-		class:translate-x-0={visible}
-		style="transition-timing-function: cubic-bezier(0.16,1,0.3,1);"
+		style="opacity: {visible ? 1 : 0}; transform: translateX({visible ? '0' : '4rem'}); transition-timing-function: cubic-bezier(0.16,1,0.3,1);"
 	>
 		<img
 			src={catzillaPhone}
@@ -43,13 +39,10 @@
 		<div class="absolute inset-0 bg-linear-to-r from-black via-transparent to-transparent"></div>
 		<div class="absolute inset-0 bg-linear-to-t from-transparent via-transparent to-black/60"></div>
 	</div>
+
 	<div
 		class="fixed right-0 bottom-0 z-0 hidden transition-all duration-1000 ease-out md:block"
-		class:opacity-0={!visible}
-		class:opacity-100={visible}
-		class:translate-x-16={!visible}
-		class:translate-x-0={visible}
-		style="transition-timing-function: cubic-bezier(0.16,1,0.3,1);"
+		style="opacity: {visible ? 1 : 0}; transform: translateX({visible ? '0' : '4rem'}); transition-timing-function: cubic-bezier(0.16,1,0.3,1);"
 	>
 		<img
 			src={catzilla}
