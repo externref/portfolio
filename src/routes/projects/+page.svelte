@@ -1,5 +1,12 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+
+	import glyphImg from '$lib/assets/projects/glyph.png';
+	import aoiImg from '$lib/assets/projects/aoi.png';
+	import reverbImg from '$lib/assets/projects/reverb.png';
+	import wyvernImg from '$lib/assets/projects/wyvern.png';
+	import eyes_shadow from '$lib/assets/background/eyes_shadow.png';
+
 	import ProjectCard from '$lib/components/ProjectCard.svelte';
 
 	let visible = $state(false);
@@ -18,11 +25,15 @@
 		docsUrl?: string;
 	}
 
+	const prep = (proj: string) => {
+		return;
+	};
+
 	const projects: Project[] = [
 		{
 			title: 'glyph',
 			description: 'pastebin service for code snippet and text sharing with syntax highlighting',
-			image: '/projects/glyph.png',
+			image: glyphImg,
 			tags: ['python', 'fastapi', 'mongo-db'],
 			githubUrl: 'https://github.com/externref/glyph',
 			deployUrl: 'https://glyph.externref.dev'
@@ -32,7 +43,7 @@
 			description:
 				"abstraction layer over rust's rusqlite crate for sqlite3 in rust[, python and cli (WIP)]",
 
-			image: '/projects/aoi.png',
+			image: aoiImg,
 			tags: ['rust', 'python', 'sqlite3', 'cli'],
 			githubUrl: 'https://github.com/externref/aoi',
 			deployUrl: 'https://github.com/externref/aoi/releases',
@@ -42,7 +53,7 @@
 			title: 'wyvern',
 			description:
 				'a flexible and easy to use Discord API wrapper for python with asyncio and event handling support.',
-			image: '/projects/wyvern.png',
+			image: wyvernImg,
 			tags: ['python', 'discord-api-v10', 'library', 'async', 'aiohttp'],
 			githubUrl: 'https://github.com/externref/wyvern',
 			docsUrl: 'https://wyvern.readthedocs.io/en/latest/'
@@ -51,7 +62,7 @@
 			title: 'reverb',
 			description:
 				'spotify analysis platform using spotify API with profile analysis and playlist recommendation generation',
-			image: 'projects/reverb.png',
+			image: reverbImg,
 			tags: ['svelte-kit', 'spotify api', 'tailwindcss'],
 			githubUrl: 'https://github.com/externref/reverb/tree/master',
 			deployUrl: 'https://reverb.externref.dev'
@@ -64,7 +75,7 @@
 </svelte:head>
 
 <div class="projects-bg-wrap md:hidden" class:projects-bg-wrap--in={visible}>
-	<img src="/jolyne_eyes.png" alt="" class="projects-bg-img bg-black" aria-hidden="true" />
+	<img src={eyes_shadow} alt="" class="projects-bg-img bg-black" aria-hidden="true" />
 	<div class="projects-bg-fade"></div>
 </div>
 
@@ -74,7 +85,7 @@
 	class:opacity-100={visible}
 >
 	<img
-		src="/jolyne_eyes.png"
+		src={eyes_shadow}
 		alt=""
 		class="h-full w-full bg-black object-cover object-center"
 		aria-hidden="true"

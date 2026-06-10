@@ -1,6 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
 
+	import jotaro_img from '$lib/assets/background/jotaro.png';
 	import StackMarquee from '$lib/components/StackMarquee.svelte';
 
 	let visible = $state(false);
@@ -52,7 +53,7 @@
 	</div>
 
 	<div class="hero-char-wrap" class:hero-char-wrap--in={visible}>
-		<img src="/jotaro.png" alt="Character silhouette" class="hero-char-img" aria-hidden="true" />
+		<img src={jotaro_img} alt="Character silhouette" class="hero-char-img" aria-hidden="true" />
 		<div class="hero-char-fade"></div>
 		<div class="hero-glitch-line hero-glitch-line-1" aria-hidden="true"></div>
 		<div class="hero-glitch-line hero-glitch-line-2" aria-hidden="true"></div>

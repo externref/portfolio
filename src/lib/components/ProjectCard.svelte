@@ -1,4 +1,6 @@
 <script lang="ts">
+	import peaceSymbol from '$lib/assets/peace.png';
+
 	interface Props {
 		title: string;
 		description: string;
@@ -119,7 +121,7 @@
 		</div>
 	</div>
 	<img
-		src="/peace.png"
+		src={peaceSymbol}
 		alt=""
 		aria-hidden="true"
 		class="absolute right-4 bottom-4 z-20 h-9 w-9 rotate-14 object-contain opacity-50 transition-opacity duration-300 group-hover:opacity-100"
