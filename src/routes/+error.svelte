@@ -26,7 +26,7 @@
 
 {#if $page.status === 404}
 	<div
-		class="fixed right-0 bottom-0 z-0 h-dvh transition-all duration-1000 ease-out md:hidden"
+		class="fixed right-0 top-0 z-0 h-dvh transition-all duration-1000 ease-out md:hidden"
 		style="opacity: {visible ? 1 : 0}; transform: translateX({visible ? '0' : '4rem'}); transition-timing-function: cubic-bezier(0.16,1,0.3,1);"
 	>
 		<img
