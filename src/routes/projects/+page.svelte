@@ -1,12 +1,11 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-
 	import glyphImg from '$lib/assets/projects/glyph.png';
 	import aoiImg from '$lib/assets/projects/aoi.png';
 	import reverbImg from '$lib/assets/projects/reverb.png';
 	import wyvernImg from '$lib/assets/projects/wyvern.png';
 	import eyes_shadow from '$lib/assets/background/eyes_shadow.png';
-
+	import tobecontinued from '$lib/assets/tobecontinued.png';
 	import ProjectCard from '$lib/components/ProjectCard.svelte';
 
 	let visible = $state(false);
@@ -25,10 +24,6 @@
 		docsUrl?: string;
 	}
 
-	const prep = (proj: string) => {
-		return;
-	};
-
 	const projects: Project[] = [
 		{
 			title: 'glyph',
@@ -42,7 +37,6 @@
 			title: 'aoi',
 			description:
 				"abstraction layer over rust's rusqlite crate for sqlite3 in rust[, python and cli (WIP)]",
-
 			image: aoiImg,
 			tags: ['rust', 'python', 'sqlite3', 'cli'],
 			githubUrl: 'https://github.com/externref/aoi',
@@ -129,6 +123,14 @@
 					/>
 				</div>
 			{/each}
+		</div>
+
+		<div
+			class="mt-8 flex justify-end opacity-0 transition-all duration-700 ease-out md:px-20"
+			class:opacity-100={visible}
+			style="transition-delay: {200 + projects.length * 100 + 200}ms;"
+		>
+			<img src={tobecontinued} alt="To Be Continued" class="w-56 opacity-80 md:w-72" />
 		</div>
 	</div>
 </div>

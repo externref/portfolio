@@ -20,7 +20,6 @@
 
 <!-- TODO: (vibecoded css) revisit to optimise -->
 <div class="relative min-h-dvh w-full overflow-x-hidden">
-
 	<div
 		class="pointer-events-none fixed inset-0 z-10"
 		style="background: repeating-linear-gradient(to bottom, transparent, transparent 3px, rgba(255,255,255,0.018) 3px, rgba(255,255,255,0.018) 4px);"
@@ -29,8 +28,10 @@
 
 	{#if $page.status === 404}
 		<div
-			class="fixed right-0 top-0 z-0 h-dvh overflow-hidden transition-all duration-1000 ease-out md:hidden"
-			style="opacity: {visible ? 1 : 0}; transform: translateX({visible ? '0' : '4rem'}); transition-timing-function: cubic-bezier(0.16,1,0.3,1);"
+			class="fixed top-0 right-0 z-0 h-dvh overflow-hidden transition-all duration-1000 ease-out md:hidden"
+			style="opacity: {visible ? 1 : 0}; transform: translateX({visible
+				? '0'
+				: '4rem'}); transition-timing-function: cubic-bezier(0.16,1,0.3,1);"
 		>
 			<img
 				src={catzillaPhone}
@@ -40,12 +41,16 @@
 				style="filter: contrast(1.1) brightness(0.7) grayscale(0.2);"
 			/>
 			<div class="absolute inset-0 bg-linear-to-r from-black via-transparent to-transparent"></div>
-			<div class="absolute inset-0 bg-linear-to-t from-transparent via-transparent to-black/60"></div>
+			<div
+				class="absolute inset-0 bg-linear-to-t from-transparent via-transparent to-black/60"
+			></div>
 		</div>
 
 		<div
-			class="fixed right-0 top-0 z-0 hidden overflow-hidden transition-all duration-1000 ease-out md:block"
-			style="opacity: {visible ? 1 : 0}; transform: translateX({visible ? '0' : '4rem'}); transition-timing-function: cubic-bezier(0.16,1,0.3,1);"
+			class="fixed top-0 right-0 z-0 hidden overflow-hidden transition-all duration-1000 ease-out md:block"
+			style="opacity: {visible ? 1 : 0}; transform: translateX({visible
+				? '0'
+				: '4rem'}); transition-timing-function: cubic-bezier(0.16,1,0.3,1);"
 		>
 			<img
 				src={catzilla}
@@ -55,11 +60,15 @@
 				style="filter: contrast(1.1) brightness(0.7) grayscale(0.2);"
 			/>
 			<div class="absolute inset-0 bg-linear-to-r from-black via-transparent to-transparent"></div>
-			<div class="absolute inset-0 bg-linear-to-t from-transparent via-transparent to-black/60"></div>
+			<div
+				class="absolute inset-0 bg-linear-to-t from-transparent via-transparent to-black/60"
+			></div>
 		</div>
 	{/if}
 
-	<div class="hero-logo" class:hero-logo--in={visible} aria-hidden="true">/home/externref/error</div>
+	<div class="hero-logo" class:hero-logo--in={visible} aria-hidden="true">
+		/home/externref/error
+	</div>
 
 	<div class="relative z-10 flex min-h-dvh items-center">
 		<div class="w-full pr-6 pl-[8%] lg:pl-[12%]">
@@ -138,5 +147,4 @@
 		class:w-[50%]={textVisible}
 		style="transition-delay: 500ms;"
 	></div>
-
 </div>
