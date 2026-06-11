@@ -113,10 +113,6 @@
 </script>
 
 <svelte:head>
-	<link
-		rel="stylesheet"
-		href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-	/>
 	<title>/home/externref/contact</title>
 </svelte:head>
 
@@ -166,7 +162,7 @@
 	</h1>
 
 	<div
-		class="flex flex-col gap-10 opacity-0 transition-all duration-700 ease-out lg:flex-row lg:items-start lg:gap-16"
+		class="flex flex-col gap-10 opacity-0 transition-opacity duration-700 ease-out lg:flex-row lg:items-start lg:gap-16"
 		class:opacity-100={visible}
 		style="transition-delay: 250ms;"
 	>
@@ -279,7 +275,7 @@
 												bind:value={name}
 												placeholder="your name"
 												class="rounded-lg border bg-white/4 px-3 py-2.5 font-mono text-xs text-white
-                                               placeholder-white/20 transition-all duration-200 outline-none
+                                               placeholder-white/20 transition-colors duration-200 outline-none
                                                focus:bg-white/[0.07]
                                                {fieldErrors.name
 													? 'border-red-400/60 focus:border-red-400'
@@ -301,7 +297,7 @@
 												bind:value={email}
 												placeholder="you@example.com"
 												class="rounded-lg border bg-white/4 px-3 py-2.5 font-mono text-xs text-white
-                                               placeholder-white/20 transition-all duration-200 outline-none
+                                               placeholder-white/20 transition-colors duration-200 outline-none
                                                focus:bg-white/[0.07]
                                                {fieldErrors.email
 													? 'border-red-400/60 focus:border-red-400'
@@ -324,7 +320,7 @@
 											bind:value={subject}
 											placeholder="what's this about"
 											class="rounded-lg border bg-white/4 px-3 py-2.5 font-mono text-xs text-white
-                                           placeholder-white/20 transition-all duration-200 outline-none
+                                           placeholder-white/20 transition-colors duration-200 outline-none
                                            focus:bg-white/[0.07]
                                            {fieldErrors.subject
 												? 'border-red-400/60 focus:border-red-400'
@@ -346,10 +342,9 @@
 								<textarea
 									id="content"
 									bind:value={content}
-									rows="7"
 									placeholder="write your message here..."
-									class="resize-none rounded-lg border bg-white/4 px-3 py-2.5 font-mono text-xs
-                                   leading-6 text-white placeholder-white/20 transition-all duration-200 outline-none
+									class="h-44 resize-none rounded-lg border bg-white/4 px-3 py-2.5 font-mono text-xs
+                                   leading-6 text-white placeholder-white/20 transition-colors duration-200 outline-none
                                    focus:bg-white/[0.07]
                                    {fieldErrors.content
 										? 'border-red-400/60 focus:border-red-400'
@@ -383,27 +378,26 @@
 							</div>
 						</div>
 
-						<a
-							href="https://discord.com/users/1134016724132446208"
-							target="_blank"
-							rel="noopener noreferrer"
-							class="group flex shrink-0 items-center justify-center self-stretch border-l border-white/[0.07] px-5 py-5
-                               no-underline transition-all duration-200 hover:bg-[#c8a96e]/5"
-							aria-label="Message on Discord"
-							style="writing-mode: vertical-rl;"
-						>
-							<span
-								class="flex items-center gap-2 font-mono text-[0.78rem] tracking-[0.2em] text-white/25 uppercase
-                                     transition-colors duration-200 group-hover:text-[#c8a96e]/70"
-								style="transform: rotate(180deg);"
+						<div class="relative flex w-14 shrink-0 items-center justify-center border-l border-white/[0.07]">
+							<a
+								href="https://discord.com/users/1134016724132446208"
+								target="_blank"
+								rel="noopener noreferrer"
+								class="group absolute inset-0 flex items-center justify-center no-underline transition-colors duration-200 hover:bg-[#c8a96e]/5"
+								aria-label="Message on Discord"
 							>
-								<i
-									class="bi bi-discord text-[#5865F2] rotate-90"
-									style="writing-mode: horizontal-tb; font-size: 0.75rem;"
-								></i>
-								Or message on Discord
-							</span>
-						</a>
+								<span
+									class="flex whitespace-nowrap items-center gap-2 font-mono text-[0.78rem] tracking-[0.2em] text-white/25 uppercase
+                                         transition-colors duration-200 group-hover:text-[#c8a96e]/70 -rotate-90"
+								>
+									<i
+										class="bi bi-discord text-[#5865F2]"
+										style="font-size: 0.75rem;"
+									></i>
+									Or message on Discord
+								</span>
+							</a>
+						</div>
 					</div>
 				</div>
 			</div>
