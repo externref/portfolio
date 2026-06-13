@@ -3,6 +3,8 @@
 	import handPointer from '$lib/assets/background/hand_pointer.png';
 	import jeffHeadphone from '$lib/assets/jeff_headphone.png';
 
+	import SEOMeta from '$lib/components/SEOMeta.svelte';
+
 	let visible = $state(false);
 	let name = $state('');
 	let email = $state('');
@@ -112,9 +114,11 @@
 	onMount(() => setTimeout(() => (visible = true), 200));
 </script>
 
-<svelte:head>
-	<title>/home/externref/contact</title>
-</svelte:head>
+<SEOMeta
+	title="/home/externref/contact"
+	description="contact me through socials or mail"
+	path="/contact"
+/>
 
 <div class="projects-bg-wrap md:hidden" class:projects-bg-wrap--in={visible}>
 	<img
@@ -142,6 +146,9 @@
 	<div class="absolute inset-0 bg-linear-to-r from-black via-black/60 to-transparent"></div>
 	<div class="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-black"></div>
 </div>
+
+<div class="hero-scanlines" aria-hidden="true"></div>
+<div class="hero-grain" aria-hidden="true"></div>
 
 <div class="hero-logo" class:hero-logo--in={visible} aria-hidden="true">
 	/home/externref/contact
@@ -378,7 +385,9 @@
 							</div>
 						</div>
 
-						<div class="relative flex w-14 shrink-0 items-center justify-center border-l border-white/[0.07]">
+						<div
+							class="relative flex w-14 shrink-0 items-center justify-center border-l border-white/[0.07]"
+						>
 							<a
 								href="https://discord.com/users/1134016724132446208"
 								target="_blank"
@@ -387,13 +396,10 @@
 								aria-label="Message on Discord"
 							>
 								<span
-									class="flex whitespace-nowrap items-center gap-2 font-mono text-[0.78rem] tracking-[0.2em] text-white/25 uppercase
-                                         transition-colors duration-200 group-hover:text-[#c8a96e]/70 -rotate-90"
+									class="flex -rotate-90 items-center gap-2 font-mono text-[0.78rem] tracking-[0.2em] whitespace-nowrap text-white/25
+                                         uppercase transition-colors duration-200 group-hover:text-[#c8a96e]/70"
 								>
-									<i
-										class="bi bi-discord text-[#5865F2]"
-										style="font-size: 0.75rem;"
-									></i>
+									<i class="bi bi-discord text-[#5865F2]" style="font-size: 0.75rem;"></i>
 									Or message on Discord
 								</span>
 							</a>
@@ -403,4 +409,10 @@
 			</div>
 		</div>
 	</div>
+	<div
+		class="fixed bottom-0 left-0 z-20 h-px bg-linear-to-r from-[#c8a96e] to-transparent transition-[width] duration-1200 ease-out"
+		class:w-0={!visible}
+		class:w-[50%]={visible}
+		style="transition-delay: 500ms;"
+	></div>
 </div>

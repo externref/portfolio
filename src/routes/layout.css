@@ -47,7 +47,7 @@
 	}
 
 	.hero-scanlines {
-		@apply pointer-events-none absolute inset-0 z-10;
+		@apply pointer-events-none fixed inset-0 z-10;
 		background: repeating-linear-gradient(
 			to bottom,
 			transparent,
@@ -58,8 +58,9 @@
 	}
 
 	.hero-grain {
-		@apply pointer-events-none absolute inset-[-50%] z-10 h-[200%] w-[200%] opacity-[0.04];
+		@apply pointer-events-none fixed inset-0 z-10 opacity-[0.04];
 		background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+		background-size: 200px 200px;
 		animation: hero-grain-shift 0.4s steps(1) infinite;
 	}
 
@@ -190,13 +191,13 @@
 		transform: translate(0, 0);
 	}
 	25% {
-		transform: translate(-2%, -3%);
+		transform: translate(-4px, -6px);
 	}
 	50% {
-		transform: translate(3%, 1%);
+		transform: translate(6px, 2px);
 	}
 	75% {
-		transform: translate(-1%, 4%);
+		transform: translate(-2px, 8px);
 	}
 }
 

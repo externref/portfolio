@@ -4,6 +4,7 @@
 
 	import catzilla from '$lib/assets/background/catzilla.png';
 	import catzillaPhone from '$lib/assets/background/catzilla_phone.png';
+	import SEOMeta from '$lib/components/SEOMeta.svelte';
 
 	let visible = $state(false);
 	let textVisible = $state(false);
@@ -14,10 +15,7 @@
 	});
 </script>
 
-<svelte:head>
-	<title>/home/externref/error</title>
-</svelte:head>
-
+<SEOMeta title="/home/externref/error" description="error page" />
 <!-- TODO: (vibecoded css) revisit to optimise -->
 <div class="relative min-h-dvh w-full overflow-x-hidden">
 	<div

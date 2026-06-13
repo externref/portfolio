@@ -7,6 +7,7 @@
 	import eyes_shadow from '$lib/assets/background/eyes_shadow.png';
 	import tobecontinued from '$lib/assets/tobecontinued.png';
 	import ProjectCard from '$lib/components/ProjectCard.svelte';
+	import SEOMeta from '$lib/components/SEOMeta.svelte';
 
 	let visible = $state(false);
 
@@ -64,9 +65,11 @@
 	];
 </script>
 
-<svelte:head>
-	<title>/home/externref/projects</title>
-</svelte:head>
+<SEOMeta
+	title="/home/externref/projects"
+	description="projects and libraries i've worked on"
+	path="/projects"
+/>
 
 <div class="projects-bg-wrap md:hidden" class:projects-bg-wrap--in={visible}>
 	<img src={eyes_shadow} alt="" class="projects-bg-img bg-black" aria-hidden="true" />
@@ -86,6 +89,9 @@
 	/>
 	<div class="absolute inset-0 bg-linear-to-b from-black/30 via-black/50 to-black"></div>
 </div>
+
+<div class="hero-scanlines" aria-hidden="true"></div>
+<div class="hero-grain" aria-hidden="true"></div>
 
 <div class="hero-logo" class:hero-logo--in={visible} aria-hidden="true">
 	/home/externref/projects
@@ -133,4 +139,10 @@
 			<img src={tobecontinued} alt="To Be Continued" class="w-56 opacity-80 md:w-72" />
 		</div>
 	</div>
+	<div
+		class="fixed bottom-0 left-0 z-20 h-px bg-linear-to-r from-[#c8a96e] to-transparent transition-[width] duration-1200 ease-out"
+		class:w-0={!visible}
+		class:w-[50%]={visible}
+		style="transition-delay: 500ms;"
+	></div>
 </div>
