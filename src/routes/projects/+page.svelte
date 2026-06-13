@@ -8,6 +8,7 @@
 	import tobecontinued from '$lib/assets/tobecontinued.png';
 	import ProjectCard from '$lib/components/ProjectCard.svelte';
 	import SEOMeta from '$lib/components/SEOMeta.svelte';
+	import FeaturedCard from '$lib/components/FeaturedCard.svelte';
 
 	let visible = $state(false);
 
@@ -81,12 +82,7 @@
 	class:opacity-0={!visible}
 	class:opacity-100={visible}
 >
-	<img
-		src={eyes_shadow}
-		alt=""
-		class="h-full w-full bg-black object-cover object-center"
-		aria-hidden="true"
-	/>
+	<img src={eyes_shadow} alt="" class="h-full w-full bg-black object-cover object-center" aria-hidden="true" />
 	<div class="absolute inset-0 bg-linear-to-b from-black/30 via-black/50 to-black"></div>
 </div>
 
@@ -104,19 +100,30 @@
 		class:opacity-100={visible}
 		style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 8vw, 7rem); line-height: 1; letter-spacing: 0.04em; transition-delay: 100ms;"
 	>
-		<span class="text-white">Pro</span><span
-			style="-webkit-text-stroke: 2px #c8a96e; color: transparent;">jects</span
-		>
+		<span class="text-white">Pro</span><span style="-webkit-text-stroke: 2px #c8a96e; color: transparent;">jects</span>
 	</h1>
 
 	<div class="relative z-10 flex-1">
 		<div class="grid grid-cols-1 gap-5 md:grid-cols-2 md:px-20">
+
+			<!-- Featured card: full width -->
+			<div
+				class="col-span-1 md:col-span-2"
+				style="
+					transform: {visible ? 'scale(1)' : 'scale(0.96)'};
+					transition: transform 700ms cubic-bezier(0.34,1.56,0.64,1) 150ms;
+				"
+			>
+				<FeaturedCard {visible} />
+			</div>
+
+			<!-- Project cards -->
 			{#each projects as project, i}
 				<div
-					class="translate-y-4 opacity-0 transition-all duration-700 ease-out"
-					class:translate-y-0={visible}
-					class:opacity-100={visible}
-					style="transition-delay: {200 + i * 100}ms;"
+					style="
+						transform: {visible ? 'scale(1)' : 'scale(0.96)'};
+						transition: transform 700ms cubic-bezier(0.34,1.56,0.64,1) {200 + i * 100}ms;
+					"
 				>
 					<ProjectCard
 						title={project.title}
@@ -139,6 +146,7 @@
 			<img src={tobecontinued} alt="To Be Continued" class="w-56 opacity-80 md:w-72" />
 		</div>
 	</div>
+
 	<div
 		class="fixed bottom-0 left-0 z-20 h-px bg-linear-to-r from-[#c8a96e] to-transparent transition-[width] duration-1200 ease-out"
 		class:w-0={!visible}
