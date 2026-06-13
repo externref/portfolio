@@ -17,6 +17,7 @@
 	const items: DockItem[] = [
 		{ id: 'home', icon: 'bi-house-fill', label: 'Home', href: '/' },
 		{ id: 'project', icon: 'bi-code-slash', label: 'Projects', href: '/projects' },
+		{ id: 'contact', icon: 'bi-send-fill', label: 'Contact', href: '/contact' },
 		{
 			id: 'resume',
 			icon: 'bi-file-earmark-arrow-down-fill',
@@ -39,7 +40,7 @@
 			href: 'https://discord.com/users/1134016724132446208',
 			external: true
 		},
-		{ id: 'contact', icon: 'bi-send-fill', label: 'Contact', href: '/contact' },
+
 		{
 			id: 'linkedin',
 			icon: 'bi-linkedin',
