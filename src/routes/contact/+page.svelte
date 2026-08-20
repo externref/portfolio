@@ -164,7 +164,7 @@
 		<span class="text-white">Get in</span><span
 			style="-webkit-text-stroke: 2px #c8a96e; color: transparent;"
 		>
-			Touch</span
+			&nbsp;Touch</span
 		>
 	</h1>
 
